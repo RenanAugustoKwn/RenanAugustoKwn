@@ -1,6 +1,6 @@
-![Banner de Engenharia de Software](https://www.vecteezy.com/vector-art/22013000-software-engineer-banner)
+![Banner de Engenharia de Software](https://media.licdn.com/dms/image/v2/D4E12AQG01n_019RdTg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1688060511568?e=2147483647&v=beta&t=_a6AYiCEw5OFB03gO8y1h34fQXH_jfMCfVxt6WS4Q1M)
 
-<h1 align="center" style="color: #FF5733;">Olá!!! Eu sou Renan Augusto e Bem-Vindo ao meu Perfil 💻🖱️👨‍💻🕹️</h1>
+<h1 align="center" style="color: #FF5733;">🚀 Bem-vindo ao universo da inovação! Eu sou Renan Augusto, seu guia nesta jornada tecnológica. 💻🖱️👨‍💻🕹️</h1>
 
 <div align="center">
   <a href="https://github.com/RenanAugustoKwn">
