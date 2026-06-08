@@ -14,8 +14,7 @@
 
 <div align="center">
   <a href="https://github.com/RenanAugustoKwn">
-    <img height="180em" src=""https://github-readme-stats.vercel.app/api?username=RenanAugustoKwn&show_icons=true&theme=dark"
-    media="(prefers-color-scheme: dark)" alt="Estatísticas do GitHub" />
+    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=RenanAugustoKwn&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub" />
     <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&theme=tokyonight" alt="Linguagens mais usadas" />
   </a>
 </div>
@@ -55,10 +54,8 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/portfolio01/output/github-contribution-grid-snake.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/portfolio01/output/github-contribution-grid-snake-light.svg">
-    <img alt="GitHub Contribution Snake Animation" src="https://raw.githubusercontent.com/RenanAugustoKwn/portfolio01/output/github-contribution-grid-snake.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake.svg">
+    <img alt="GitHub Contribution Snake Animation" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake.svg" />
   </picture>
 </div>
-
-<br />
