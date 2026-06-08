@@ -35,7 +35,6 @@
 ### 📈 Analytics do GitHub
 
 <div align="center">
-  <img height="170em" src="https://github-readme-stats.vercel.app/api?username=RenanAugustoKwn&show_icons=true&theme=tokyonight&hide_border=true&v=1" alt="Estatísticas do GitHub" />
   <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=RenanAugustoKwn&theme=tokyonight&hide_border=true" alt="Estatísticas de Frequência" />
 </div>
 
