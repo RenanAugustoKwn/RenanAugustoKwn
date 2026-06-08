@@ -14,27 +14,10 @@
   <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%" alt="Linha Divisória Animada" />
 </div>
 
-### 💻 Stack Tecnológico
-
-<div align="center">
-  <p><strong>Desenvolvimento & Motores Gráficos</strong></p>
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=cs,python,c,unity,unreal&theme=dark" alt="Linguagens e Motores" />
-  </a>
-  <br><br>
-  <p><strong>Web & Ferramentas</strong></p>
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,git,github,vscode&theme=dark" alt="Web e Ferramentas" />
-  </a>
-</div>
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%" alt="Linha Divisória Animada" />
-</div>
-
 ### 📈 Analytics do GitHub
 
 <div align="center">
+  <img height="170em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RenanAugustoKwn&theme=tokyonight" alt="Linguagens Mais Usadas" />
   <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=RenanAugustoKwn&theme=tokyonight&hide_border=true" alt="Estatísticas de Frequência" />
 </div>
 
