@@ -17,14 +17,14 @@
 ### 📈 Analytics do GitHub
 
 <div align="center">
-  <img height="170em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RenanAugustoKwn&theme=tokyonight" alt="Linguagens Mais Usadas" />
-  <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=RenanAugustoKwn&theme=tokyonight&hide_border=true" alt="Estatísticas de Frequência" />
+  <img height="170em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RenanAugustoKwn&theme=dark" alt="Linguagens Mais Usadas" />
+  <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=RenanAugustoKwn&theme=dark&background=0D1117&hide_border=true" alt="Estatísticas de Frequência" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=RenanAugustoKwn&bg_color=1a1b27&color=7aa2f7&line=7dcfff&point=3d59a1&theme=tokyonight&hide_border=true" alt="Gráfico de Atividades Animado" width="80%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=RenanAugustoKwn&bg_color=0D1117&color=00E5FF&line=00E5FF&point=FFFFFF&hide_border=true" alt="Gráfico de Atividades Animado" width="80%" />
 </div>
 
 <div align="center">
@@ -37,7 +37,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake.svg">
-    <img alt="Animação da Cobrinha do GitHub" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake.svg" />
+    <img alt="Animação da Cobrinha do GitHub" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake-dark.svg" />
   </picture>
 </div>
 
