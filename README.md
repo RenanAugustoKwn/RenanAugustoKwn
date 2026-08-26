@@ -1,5 +1,5 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/visual-map-dark.gif?v=20260826-animated">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/dark.svg?v=20260826-animated">
   <img alt="Mapa visual animado de Renan Augusto: retrato em partículas transforma-se em símbolos de C#, Flutter e C++." src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/dark.svg?v=20260826-animated">
 </picture>
 <div align="center">
