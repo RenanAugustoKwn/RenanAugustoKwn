@@ -19,6 +19,7 @@
     <img alt="Animação de uma cobra percorrendo as contribuições de Renan Augusto" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg">
   </picture>
 </div>
+
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
