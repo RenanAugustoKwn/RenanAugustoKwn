@@ -29,39 +29,48 @@
 </div>
 
 <div align="center">
+
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://api.iconify.design/simple-icons/linkedin.svg?color=%230A66C2&background=%230A101F"
-      width="180"
-      height="42"
+      src="https://api.iconify.design/simple-icons/linkedin.svg?color=%230A66C2"
+      width="22"
+      height="22"
       alt="LinkedIn"
     />
-  </a>&nbsp;&nbsp;
+    <strong> LinkedIn</strong>
+  </a>
+  &nbsp;&nbsp;&nbsp;
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
-      src="https://api.iconify.design/simple-icons/instagram.svg?color=%23E4405F&background=%230A101F"
-      width="180"
-      height="42"
+      src="https://api.iconify.design/simple-icons/instagram.svg?color=%23E4405F"
+      width="22"
+      height="22"
       alt="Instagram"
     />
-  </a>&nbsp;&nbsp;
+    <strong> Instagram</strong>
+  </a>
+  &nbsp;&nbsp;&nbsp;
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
-      src="https://api.iconify.design/simple-icons/discord.svg?color=%235865F2&background=%230A101F"
-      width="180"
-      height="42"
+      src="https://api.iconify.design/simple-icons/discord.svg?color=%235865F2"
+      width="22"
+      height="22"
       alt="Discord"
     />
-  </a>&nbsp;&nbsp;
+    <strong> Discord</strong>
+  </a>
+  &nbsp;&nbsp;&nbsp;
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
-      src="https://api.iconify.design/simple-icons/microsoftoutlook.svg?color=%230078D4&background=%230A101F"
-      width="180"
-      height="42"
-      alt="Email"
+      src="https://api.iconify.design/simple-icons/microsoftoutlook.svg?color=%230078D4"
+      width="22"
+      height="22"
+      alt="Outlook"
     />
+    <strong> Email</strong>
   </a>
+
 </div>
