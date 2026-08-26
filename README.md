@@ -36,7 +36,7 @@
       height="32"
       alt="LinkedIn"
     />
-  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
@@ -45,7 +45,7 @@
       height="32"
       alt="Instagram"
     />
-  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
@@ -54,7 +54,7 @@
       height="32"
       alt="Discord"
     />
-  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
