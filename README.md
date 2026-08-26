@@ -31,7 +31,7 @@
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://cdn.simpleicons.org/linkedin/0A66C2"
+      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/linkedin.svg"
       width="36"
       height="36"
       alt="LinkedIn"
@@ -40,7 +40,7 @@
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
-      src="https://cdn.simpleicons.org/instagram/E4405F"
+      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/instagram.svg"
       width="36"
       height="36"
       alt="Instagram"
@@ -49,7 +49,7 @@
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
-      src="https://cdn.simpleicons.org/discord/5865F2"
+      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/discord.svg"
       width="36"
       height="36"
       alt="Discord"
@@ -58,7 +58,7 @@
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
-      src="https://cdn.simpleicons.org/microsoftoutlook/0078D4"
+      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/microsoftoutlook.svg"
       width="36"
       height="36"
       alt="Email"
