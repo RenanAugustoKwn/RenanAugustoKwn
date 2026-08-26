@@ -22,7 +22,7 @@
 
 <div align="center">
   <img
-    src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake-dark.svg"
+    src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg"
     alt="GitHub contribution snake"
     width="100%"
   />
