@@ -29,44 +29,31 @@
 </div>
 
 <div align="center">
-
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://cdn.simpleicons.org/linkedin/0A66C2"
-      width="36"
-      height="36"
+      src="https://img.shields.io/badge/LinkedIn-0A101F?style=for-the-badge&logo=linkedin&logoColor=0A66C2&logoSize=auto"
       alt="LinkedIn"
     />
-  </a>
-  &nbsp;&nbsp;&nbsp;
+  </a>&nbsp;&nbsp;
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
-      src="https://cdn.simpleicons.org/instagram/E4405F"
-      width="36"
-      height="36"
+      src="https://img.shields.io/badge/Instagram-0A101F?style=for-the-badge&logo=instagram&logoColor=E4405F&logoSize=auto"
       alt="Instagram"
     />
-  </a>
-  &nbsp;&nbsp;&nbsp;
+  </a>&nbsp;&nbsp;
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
-      src="https://cdn.simpleicons.org/discord/5865F2"
-      width="36"
-      height="36"
+      src="https://img.shields.io/badge/Discord-0A101F?style=for-the-badge&logo=discord&logoColor=5865F2&logoSize=auto"
       alt="Discord"
     />
-  </a>
-  &nbsp;&nbsp;&nbsp;
+  </a>&nbsp;&nbsp;
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
-      src="https://cdn.simpleicons.org/microsoftoutlook/0078D4"
-      width="36"
-      height="36"
+      src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=microsoftoutlook&logoColor=0078D4&logoSize=auto"
       alt="Email"
     />
   </a>
-
 </div>
