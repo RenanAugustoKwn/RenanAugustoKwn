@@ -22,7 +22,7 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake-green.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake-dark.svg">
     <img alt="Animação de uma cobra percorrendo as contribuições de Renan Augusto" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg">
   </picture>
