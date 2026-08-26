@@ -14,18 +14,11 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-rosy-28.vercel.app/api?username=RenanAugustoKwn&show_icons=true&count_private=true&include_all_commits=true&hide_rank=true&hide_border=true&title_color=22D3EE&icon_color=A78BFA&text_color=94A3B8&bg_color=0A101F&card_width=500" />
   <img width="49%" src="https://github-readme-stats-sigma-rosy-28.vercel.app/api?username=RenanAugustoKwn&show_icons=true&count_private=true&include_all_commits=true&hide_rank=true&hide_border=true&title_color=22D3EE&icon_color=A78BFA&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="RenanAugustoKwn's GitHub stats" />
 </picture>
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500&hide=HTML,CSS,SCSS,Jupyter%20Notebook,Shell,Dockerfile,Makefile,Java,PHP,Ruby,Go,Rust,Kotlin,Swift,C,Vue,Vue.js&cache_seconds=1800"
-  />
-
-  <img
-    width="49%"
-    src="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500&hide=HTML,CSS,SCSS,Jupyter%20Notebook,Shell,Dockerfile,Makefile,Java,PHP,Ruby,Go,Rust,Kotlin,Swift,C,Vue,Vue.js&cache_seconds=1800"
-    alt="Top languages"
-  />
-</picture>
+<img
+  width="49%"
+  src="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500&hide=html,css,scss,jupyter%20notebook,shell,HLSL,dockerfile,makefile&cache_seconds=1800"
+  alt="Top languages"
+/>
 </div>
 
 <div align="center">
