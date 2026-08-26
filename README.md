@@ -31,7 +31,7 @@
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/linkedin.png"
+      src="https://www.flaticon.com/free-icon/linkedin_3991642?term=linkedin&page=1&position=3&origin=tag&related_id=3991642"
       width="32"
       height="32"
       alt="LinkedIn"
