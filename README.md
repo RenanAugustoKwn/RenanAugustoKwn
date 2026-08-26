@@ -22,8 +22,8 @@
 
 <div align="center">
   <picture>
-    <source srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg">
-    <img src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg" alt="GitHub contribution snake">
+    <source srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.dark.svg">
+    <img src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.dark.svg" alt="GitHub contribution snake">
   </picture>
 </div>
 
