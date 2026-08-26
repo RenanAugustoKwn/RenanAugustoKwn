@@ -5,7 +5,8 @@ on:
     - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -26,14 +27,14 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
 
           outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=C084FC&color_dots=#ebedf0,#E9D5FF,#D8B4FE,#C084FC,#A855F7
-            dist/github-snake-dark.svg?palette=github-light&color_snake=C084FC&color_dots=#161326,#31234F,#5B21B6,#8B5CF6,#C084FC
+            dist/github-snake.svg?palette=github-light&color_snake=#A855F7&color_dots=#EBEDF0,#E9D5FF,#D8B4FE,#C084FC,#A855F7
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=#C084FC&color_dots=#161326,#2E1B47,#5B21B6,#7C3AED,#A855F7
 
       - name: Publish SVGs to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "Update snake animation [skip ci]"
+          commit_message: "Update purple snake [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
