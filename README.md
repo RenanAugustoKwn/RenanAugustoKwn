@@ -15,8 +15,8 @@
   <img width="49%" src="https://github-readme-stats-sigma-rosy-28.vercel.app/api?username=RenanAugustoKwn&show_icons=true&count_private=true&include_all_commits=true&hide_rank=true&hide_border=true&title_color=22D3EE&icon_color=A78BFA&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="RenanAugustoKwn's GitHub stats" />
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500" />
-  <img width="49%" src="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="Top languages" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500&hide=html,css" />
+  <img width="49%" src="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=RenanAugustoKwn&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500&hide=html,css" alt="Top languages" />
 </picture>
 </div>
 
@@ -30,7 +30,7 @@
 
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A101F?style=for-the-badge&logo=linkedin&logoColor=0A66C2&labelColor=0A101F" alt="LinkedIn" />
   </a>&nbsp;&nbsp;
   <a href="https://www.instagram.com/renankwn_/">
     <img src="https://img.shields.io/badge/Instagram-0A101F?style=for-the-badge&logo=instagram&logoColor=A78BFA&labelColor=0A101F" alt="Instagram" />
