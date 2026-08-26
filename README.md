@@ -1,63 +1,52 @@
-<div align="center">
-  <img src="https://media.licdn.com/dms/image/v2/D4E12AQG01n_019RdTg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1688060511568?e=2147483647&v=beta&t=_a6AYiCEw5OFB03gO8y1h34fQXH_jfMCfVxt6WS4Q1M" alt="Banner de Engenharia de Software" width="100%" />
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/light.svg">
+  <img alt="Renan Augusto — Software Engineer, Game Developer e entusiasta de sistemas embarcados" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/light.svg">
+</picture>
 
-<br>
+# Renan Augusto
 
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=00E5FF&center=true&vCenter=true&width=900&lines=%E2%9A%A1+Transformando+l%C3%B3gica+e+caf%C3%A9+em+solu%C3%A7%C3%B5es+tecnol%C3%B3gicas...;%F0%9F%8E%AE+Software+Engineer+%26+Game+Developer+(Unity+%7C+Unreal);%F0%9F%9B%A0%EF%B8%8F+Entusiasta+em+Hardware+Customizado+%26+Sistemas+Embarcados+(ESP32);%F0%9F%9A%80+Elevando+o+n%C3%ADvel+do+c%C3%B3digo,+um+commit+por+vez!" alt="Typing SVG" />
-  </a>
-</div>
+Software Engineer, Game Developer e entusiasta de hardware customizado e sistemas embarcados.
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%" alt="Linha Divisória Animada" />
-</div>
+- 🎮 Desenvolvimento de jogos com Unity e Unreal Engine
+- 🛠️ Software, automação e experimentos com ESP32
+- 🚀 Transformando lógica e café em soluções tecnológicas
 
-### 📈 Analytics do GitHub
+## Estatísticas
 
 <div align="center">
-  <img height="170em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RenanAugustoKwn&theme=dark" alt="Linguagens Mais Usadas" />
-  <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=RenanAugustoKwn&theme=dark&background=0D1117&hide_border=true" alt="Estatísticas de Frequência" />
+  <img width="100%" src="https://streak-stats.demolab.com/?user=RenanAugustoKwn&hide_border=true&background=0A101F&stroke=22D3EE&ring=A78BFA&fire=10B981&currStreakLabel=22D3EE&sideLabels=94A3B8&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B&titleColor=22D3EE&card_width=1180" alt="Sequência de contribuições no GitHub" />
 </div>
 
-<br>
+<!--
+  Cards de estatísticas e linguagens: adicionar após criar a instância privada do
+  github-readme-stats no Vercel. As instruções constam no PROFILE-SETUP.md.
+  Nunca use PAT_1 ou qualquer token neste repositório.
+-->
 
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=RenanAugustoKwn&bg_color=0D1117&color=00E5FF&line=00E5FF&point=FFFFFF&hide_border=true" alt="Gráfico de Atividades Animado" width="80%" />
-</div>
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%" alt="Linha Divisória Animada" />
-</div>
-
-### 🐍 Commits em Ação
+## Commits em ação
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake.svg">
-    <img alt="Animação da Cobrinha do GitHub" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg">
+    <img alt="Animação de uma cobra percorrendo as contribuições de Renan Augusto" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/output/github-snake.svg">
   </picture>
 </div>
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%" alt="Linha Divisória Animada" />
-</div>
-
-### 🌐 Hub de Contato
+## Contato
 
 <div align="center">
-  <a href="https://www.linkedin.com/in/renan-augusto-kwn/" target="_blank">
-    <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-  </a>
-  <a href="https://www.instagram.com/renankwn_/" target="_blank">
-    <img src="https://img.shields.io/badge/-Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
-  </a>
-  <a href="https://discord.gg/VVW7FgdkDX" target="_blank">
-    <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
-  </a>
+  <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>&nbsp;&nbsp;
+  <a href="https://www.instagram.com/renankwn_/">
+    <img src="https://img.shields.io/badge/Instagram-0A101F?style=for-the-badge&logo=instagram&logoColor=A78BFA&labelColor=0A101F" alt="Instagram" />
+  </a>&nbsp;&nbsp;
+  <a href="https://discord.gg/VVW7FgdkDX">
+    <img src="https://img.shields.io/badge/Discord-0A101F?style=for-the-badge&logo=discord&logoColor=22D3EE&labelColor=0A101F" alt="Discord" />
+  </a>&nbsp;&nbsp;
   <a href="mailto:renanaugustokwn@outlook.com">
-    <img src="https://img.shields.io/badge/Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Outlook">
+    <img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=microsoftoutlook&logoColor=10B981&labelColor=0A101F" alt="Enviar e-mail" />
   </a>
 </div>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="420" viewBox="0 0 1180 420" role="img" aria-labelledby="title desc">
+  <title id="title">Perfil de Renan Augusto</title>
+  <desc id="desc">Terminal claro com informações profissionais de Renan Augusto.</desc>
+  <defs><linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FAFC"/><stop offset="1" stop-color="#E0F2FE"/></linearGradient></defs>
+  <rect width="1180" height="420" rx="20" fill="url(#background)"/>
+  <rect x="24" y="24" width="1132" height="372" rx="14" fill="#FFFFFF" stroke="#0891B2" stroke-opacity=".65"/>
+  <circle cx="58" cy="56" r="7" fill="#fb7185"/><circle cx="82" cy="56" r="7" fill="#fbbf24"/><circle cx="106" cy="56" r="7" fill="#10B981"/>
+  <text x="590" y="62" text-anchor="middle" fill="#475569" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="16">profile.sh --live</text>
+  <rect x="58" y="94" width="300" height="250" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+  <text x="82" y="126" fill="#0891B2" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="14">VISUAL.MAP</text>
+  <text x="208" y="245" text-anchor="middle" fill="#7C3AED" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="96" font-weight="700">RA</text>
+  <text x="208" y="286" text-anchor="middle" fill="#64748B" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="14">BUILDING · LEARNING · SHIPPING</text>
+  <text x="406" y="122" fill="#0891B2" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="16">SYSTEM.INFO</text>
+  <rect x="1002" y="98" width="106" height="28" rx="14" fill="#dc2626"><animate attributeName="opacity" values="1;.55;1" dur="1.8s" repeatCount="indefinite"/></rect>
+  <text x="1055" y="118" text-anchor="middle" fill="#fff" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700">● LIVE</text>
+  <g fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="17">
+    <text x="406" y="166" fill="#64748B">SUBJECT</text><text x="575" y="166" fill="#CBD5E1">··········</text><text x="720" y="166">Renan Augusto</text>
+    <text x="406" y="204" fill="#64748B">ROLE</text><text x="575" y="204" fill="#CBD5E1">···············</text><text x="720" y="204">Software Engineer</text>
+    <text x="406" y="242" fill="#64748B">FOCUS</text><text x="575" y="242" fill="#CBD5E1">················</text><text x="720" y="242">Games · Embedded</text>
+    <text x="406" y="280" fill="#64748B">TOOLCHAIN</text><text x="575" y="280" fill="#CBD5E1">··············</text><text x="720" y="280">Unity · Unreal · ESP32</text>
+    <text x="406" y="318" fill="#64748B">GITHUB</text><text x="575" y="318" fill="#CBD5E1">················</text><text x="720" y="318" fill="#047857">@RenanAugustoKwn</text>
+  </g>
+  <text x="58" y="374" fill="#64748B" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13">$ engineering experiences, one commit at a time_</text>
+</svg>
