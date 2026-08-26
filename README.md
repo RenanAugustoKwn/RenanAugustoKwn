@@ -31,28 +31,36 @@
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://img.shields.io/badge/LinkedIn-0A101F?style=for-the-badge&logo=linkedin&logoColor=0A66C2"
+      src="https://api.iconify.design/simple-icons/linkedin.svg?color=%230A66C2&background=%230A101F"
+      width="180"
+      height="42"
       alt="LinkedIn"
     />
   </a>&nbsp;&nbsp;
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
-      src="https://img.shields.io/badge/Instagram-0A101F?style=for-the-badge&logo=instagram&logoColor=E4405F"
+      src="https://api.iconify.design/simple-icons/instagram.svg?color=%23E4405F&background=%230A101F"
+      width="180"
+      height="42"
       alt="Instagram"
     />
   </a>&nbsp;&nbsp;
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
-      src="https://img.shields.io/badge/Discord-0A101F?style=for-the-badge&logo=discord&logoColor=5865F2"
+      src="https://api.iconify.design/simple-icons/discord.svg?color=%235865F2&background=%230A101F"
+      width="180"
+      height="42"
       alt="Discord"
     />
   </a>&nbsp;&nbsp;
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
-      src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=microsoftoutlook&logoColor=0078D4"
+      src="https://api.iconify.design/simple-icons/microsoftoutlook.svg?color=%230078D4&background=%230A101F"
+      width="180"
+      height="42"
       alt="Email"
     />
   </a>
