@@ -10,6 +10,22 @@
   github-readme-stats no Vercel. As instruções constam no PROFILE-SETUP.md.
   Nunca use PAT_1 ou qualquer token neste repositório.
 -->
+### 📈 Analytics do GitHub
+
+<div align="center">
+  <img height="170em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RenanAugustoKwn&theme=dark" alt="Linguagens Mais Usadas" />
+  <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=RenanAugustoKwn&theme=dark&background=0D1117&hide_border=true" alt="Estatísticas de Frequência" />
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=RenanAugustoKwn&bg_color=0D1117&color=00E5FF&line=00E5FF&point=FFFFFF&hide_border=true" alt="Gráfico de Atividades Animado" width="80%" />
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%" alt="Linha Divisória Animada" />
+</div>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-sigma-rosy-28.vercel.app/api?username=RenanAugustoKwn&show_icons=true&count_private=true&include_all_commits=true&hide_rank=true&hide_border=true&title_color=22D3EE&icon_color=A78BFA&text_color=94A3B8&bg_color=0A101F&card_width=500" />
