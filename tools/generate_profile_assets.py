@@ -1,9 +1,8 @@
-"""Generate sharp, self-contained SVG particle animations for the profile.
+"""Generate sharp, self-contained SVG particle profile banners.
 
-The portrait and language targets are generated locally from raster masks, but
-the published assets contain only SVG geometry. Motion uses declarative SMIL:
-every moving particle is a local ``<use>`` of a one-pixel path and moves across
-the portrait, C#, Flutter and C++ targets in one seamless loop.
+The portrait and technology marks are generated locally from raster masks. A
+dense target is shown while settled, with one particle field carrying the
+transitions between the portrait, C#, Flutter and Python inside the visual map.
 """
 
 from __future__ import annotations
@@ -21,14 +20,17 @@ ROOT = Path(__file__).resolve().parents[1]
 PORTRAIT_REFERENCE = ROOT / "assets" / "profile" / "portrait-dither-reference.png"
 WIDTH, HEIGHT = 1180, 610
 ANIMATION_SECONDS = 14.2
+INTRO_SECONDS = 2.8
+# This is the framing used by the approved visual reference: face, beard and
+# blazer remain readable in the full visual-map canvas.
 PORTRAIT_CROP = (172, 0, 1012, 1050)
 PORTRAIT_SIZE = (256, 320)
 PORTRAIT_POSITION = (139, 174)
 MAP_BOUNDS = (95, 169, 440, 506)
-SVG_PARTICLE_COUNT = 1_150
+SVG_PARTICLE_COUNT = 1_800
 
-# The repeated first and final portrait positions make the loop start on a
-# complete, readable image rather than a blank animation frame.
+# Repeating the opening and closing portrait frames keeps the loop seamless
+# while each target remains readable before the next transformation begins.
 MORPH_KEY_TIMES = (
     0.000,
     0.170,
@@ -46,16 +48,29 @@ MORPH_KEY_TIMES = (
     1.000,
 )
 MORPH_SPLINES = ";".join(".42 0 .18 1" for _ in range(len(MORPH_KEY_TIMES) - 1))
-MORPH_OPACITY = ".96;.96;.24;.96;.96;.24;.96;.96;.24;.96;.96;.24;.96;.96"
+# A dense target is visible at each settled state. The moving particle field
+# appears only while transitioning between those targets.
+MORPH_OPACITY = "0;0;1;0;0;1;0;0;1;0;0;1;0;0"
+TARGET_OPACITY = {
+    "portrait": "1;1;0;0;0;0;0;0;0;0;0;0;1;1",
+    "csharp": "0;0;0;1;1;0;0;0;0;0;0;0;0;0",
+    "flutter": "0;0;0;0;0;0;1;1;0;0;0;0;0;0",
+    "python": "0;0;0;0;0;0;0;0;0;1;1;0;0;0",
+}
 
 ROWS: tuple[tuple[str, str], ...] = (
     ("SUBJECT", "Renan Augusto"),
     ("ROLE", "Software Engineer"),
-    ("FOCUS", "Game Dev / Embedded"),
+    ("FOCUS", "Software Engineering / Game Development"),
     ("STATUS", "Building"),
-    ("TOOLCHAIN", "Unity / Unreal"),
+    ("TOOLCHAIN", "VS Code / Git / Unity / .NET / Flutter"),
     ("CORE.ENGINE", "Unity / Unreal"),
-    ("CORE.HARDWARE", "ESP32 / Automation"),
+    ("CORE.LANGUAGE", "C# / C++ / Python / Dart"),
+    ("CORE.FRAMEWORK", ".NET / Flutter"),
+    ("CORE.DATABASE", "Firebase / Supabase / MongoDB / SQL"),
+    ("CORE.DESIGN", "Game Design / 3D / UI/UX"),
+    ("WORKFLOW", "Figma / Jira / Git"),
+    ("ENGINEERING", "SOLID / OOP / Clean Code / Design Patterns"),
     ("GRID.MAIL", "renanaugustokwn@outlook.com"),
     ("GRID.LINKEDIN", "renan-augusto-kwn"),
     ("GRID.GITHUB", "@RenanAugustoKwn"),
@@ -100,7 +115,7 @@ def leader(label: str) -> str:
 
 
 def svg_row_y(index: int) -> float:
-    return 183 + index * 34.0
+    return 183 + index * 22.0
 
 
 def get_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
@@ -168,7 +183,7 @@ def flutter_plane_masks() -> tuple[Image.Image, Image.Image, Image.Image]:
 @lru_cache(maxsize=None)
 def language_mask(stage: str) -> Image.Image:
     """Build local, geometric language targets without external logo assets."""
-    if stage not in {"csharp", "flutter", "cplusplus"}:
+    if stage not in {"csharp", "flutter", "python"}:
         raise ValueError(f"Unsupported language target: {stage}")
 
     if stage == "flutter":
@@ -179,6 +194,20 @@ def language_mask(stage: str) -> Image.Image:
 
     mask = Image.new("L", PORTRAIT_SIZE, 0)
     draw = ImageDraw.Draw(mask)
+
+    if stage == "python":
+        # A larger, interlocking two-snake Python glyph. The opposed heads and
+        # eyes retain the mark's identity even when built from particles alone.
+        draw.rounded_rectangle((30, 47, 187, 142), radius=31, fill=255)
+        draw.rounded_rectangle((113, 27, 198, 100), radius=22, fill=255)
+        draw.rectangle((30, 95, 81, 142), fill=255)
+        draw.ellipse((157, 60, 171, 74), fill=0)
+        draw.rounded_rectangle((69, 131, 226, 226), radius=31, fill=255)
+        draw.rounded_rectangle((58, 169, 143, 242), radius=22, fill=255)
+        draw.rectangle((175, 131, 226, 178), fill=255)
+        draw.ellipse((85, 199, 99, 213), fill=0)
+        return mask.point(lambda value: 255 if value >= 64 else 0, mode="1")
+
     center = (PORTRAIT_SIZE[0] // 2, PORTRAIT_SIZE[1] // 2)
     radius = 92
     points = [
@@ -189,8 +218,8 @@ def language_mask(stage: str) -> Image.Image:
         for index in range(6)
     ]
     draw.line(points + [points[0]], fill=255, width=9, joint="curve")
-    glyph = "C#" if stage == "csharp" else "C++"
-    font = get_font(58 if stage == "csharp" else 48, bold=True)
+    glyph = "C#"
+    font = get_font(58, bold=True)
     box = draw.textbbox((0, 0), glyph, font=font, stroke_width=1)
     draw.text(
         (
@@ -235,44 +264,13 @@ def stipple_mask(mask: Image.Image, seed: int) -> Image.Image:
 def stage_mask(stage: str) -> Image.Image:
     if stage == "portrait":
         return portrait_mask()
-    seeds = {"csharp": 11, "flutter": 17, "cplusplus": 23}
+    seeds = {"csharp": 11, "flutter": 17, "python": 23}
     return stipple_mask(language_mask(stage), seeds[stage])
 
 
 @lru_cache(maxsize=None)
-def flutter_plane_path_data() -> tuple[str, str, str]:
-    return tuple(
-        mask_path_data(stipple_mask(mask, 31 + index * 7), PORTRAIT_POSITION)
-        for index, mask in enumerate(flutter_plane_masks())
-    )
-
-
-def mask_path_data(mask: Image.Image, origin: tuple[int, int]) -> str:
-    """Compress a one-bit particle mask into compact SVG path runs."""
-    x_origin, y_origin = origin
-    runs: list[str] = []
-    for y in range(mask.height):
-        x = 0
-        while x < mask.width:
-            if not mask.getpixel((x, y)):
-                x += 1
-                continue
-            start = x
-            while x < mask.width and mask.getpixel((x, y)):
-                x += 1
-            length = x - start
-            runs.append(f"M{x_origin + start} {y_origin + y}h{length}v1h-{length}z")
-    return "".join(runs)
-
-
-@lru_cache(maxsize=None)
-def stage_path_data(stage: str) -> str:
-    return mask_path_data(stage_mask(stage), PORTRAIT_POSITION)
-
-
-@lru_cache(maxsize=None)
 def stage_points(stage: str) -> tuple[tuple[int, int], ...]:
-    """Return a stable particle sample for morphing between all four targets."""
+    """Return deterministic particle samples for every morph target."""
     mask = stage_mask(stage)
     candidates = [
         (x, y)
@@ -282,10 +280,50 @@ def stage_points(stage: str) -> tuple[tuple[int, int], ...]:
     ]
     if not candidates:
         raise ValueError(f"Particle target {stage!r} contains no visible pixels")
-    seed = {"portrait": 101, "csharp": 103, "flutter": 107, "cplusplus": 109}[stage]
+    seed = {"portrait": 101, "csharp": 103, "flutter": 107, "python": 109}[stage]
     generator = random.Random(seed)
     if len(candidates) >= SVG_PARTICLE_COUNT:
-        return tuple(generator.sample(candidates, SVG_PARTICLE_COUNT))
+        if stage != "portrait":
+            return tuple(generator.sample(candidates, SVG_PARTICLE_COUNT))
+
+        # Give the face (hair, eyebrows, eyes, beard and jaw) priority over
+        # the larger blazer area. Within that region, preserve a high share of
+        # boundaries so the likeness remains legible at profile-banner scale.
+        face_candidates = [
+            point
+            for point in candidates
+            if 42 <= point[0] <= 214 and point[1] <= 198
+        ]
+        face_count = min(len(face_candidates), round(SVG_PARTICLE_COUNT * 0.70))
+        face_edges = [
+            point
+            for point in face_candidates
+            if mask_edge(mask, point[0], point[1])
+        ]
+        face_edge_count = min(len(face_edges), round(face_count * 0.50))
+        face_sample = generator.sample(face_edges, face_edge_count)
+        face_lookup = set(face_sample)
+        face_sample += generator.sample(
+            [point for point in face_candidates if point not in face_lookup],
+            face_count - face_edge_count,
+        )
+        face_lookup = set(face_sample)
+        remaining = [point for point in candidates if point not in face_lookup]
+        torso_count = SVG_PARTICLE_COUNT - face_count
+        torso_edges = [
+            point for point in remaining if mask_edge(mask, point[0], point[1])
+        ]
+        torso_edge_count = min(len(torso_edges), round(torso_count * 0.42))
+        torso_sample = generator.sample(torso_edges, torso_edge_count)
+        torso_lookup = set(torso_sample)
+        return tuple(
+            face_sample
+            + torso_sample
+            + generator.sample(
+                [point for point in remaining if point not in torso_lookup],
+                torso_count - torso_edge_count,
+            )
+        )
     return tuple(candidates[index % len(candidates)] for index in range(SVG_PARTICLE_COUNT))
 
 
@@ -304,6 +342,28 @@ def absolute_point(point: tuple[int, int]) -> tuple[int, int]:
     return PORTRAIT_POSITION[0] + point[0], PORTRAIT_POSITION[1] + point[1]
 
 
+@lru_cache(maxsize=None)
+def stage_path_data(stage: str) -> str:
+    """Compress each one-bit target into sharp horizontal particle strokes."""
+    mask = stage_mask(stage)
+    x_origin, y_origin = PORTRAIT_POSITION
+    segments: list[str] = []
+    for y in range(mask.height):
+        x = 0
+        while x < mask.width:
+            if not mask.getpixel((x, y)):
+                x += 1
+                continue
+            start = x
+            while x < mask.width and mask.getpixel((x, y)):
+                x += 1
+            length = x - start
+            segments.append(
+                f"M{x_origin + start} {y_origin + y}h{length}v1h-{length}z"
+            )
+    return "".join(segments)
+
+
 def scatter_point(
     first: tuple[int, int], second: tuple[int, int], drift: tuple[int, int]
 ) -> tuple[int, int]:
@@ -315,10 +375,10 @@ def scatter_point(
 
 @lru_cache(maxsize=1)
 def animated_particle_uses() -> str:
-    """Build original SMIL movement for the reusable particle primitive."""
+    """Move one reusable particle field through the four visual-map targets."""
     targets = {
         stage: stage_points(stage)
-        for stage in ("portrait", "csharp", "flutter", "cplusplus")
+        for stage in ("portrait", "csharp", "flutter", "python")
     }
     drifts = motion_drifts()
     key_times = ";".join(f"{value:.3f}" for value in MORPH_KEY_TIMES)
@@ -328,7 +388,7 @@ def animated_particle_uses() -> str:
         portrait = absolute_point(targets["portrait"][index])
         csharp = absolute_point(targets["csharp"][index])
         flutter = absolute_point(targets["flutter"][index])
-        cplusplus = absolute_point(targets["cplusplus"][index])
+        python = absolute_point(targets["python"][index])
         drift = drifts[index]
         frames = (
             portrait,
@@ -339,54 +399,47 @@ def animated_particle_uses() -> str:
             scatter_point(csharp, flutter, drift),
             flutter,
             flutter,
-            scatter_point(flutter, cplusplus, drift),
-            cplusplus,
-            cplusplus,
-            scatter_point(cplusplus, portrait, drift),
+            scatter_point(flutter, python, drift),
+            python,
+            python,
+            scatter_point(python, portrait, drift),
             portrait,
             portrait,
         )
         values = ";".join(f"{x} {y}" for x, y in frames)
         dot = "#particle-dot-large" if index % 13 == 0 else "#particle-dot"
         uses.append(
-            f'<use href="{dot}" transform="translate({portrait[0]} {portrait[1]})">'
+            f'<use href="{dot}" opacity="0" transform="translate({portrait[0]} {portrait[1]})">'
             f'<animateTransform attributeName="transform" type="translate" '
-            f'values="{values}" keyTimes="{key_times}" dur="{ANIMATION_SECONDS}s" '
+            f'values="{values}" keyTimes="{key_times}" begin="{INTRO_SECONDS}s" dur="{ANIMATION_SECONDS}s" '
             f'repeatCount="indefinite" calcMode="spline" keySplines="{MORPH_SPLINES}"/>'
             f'<animate attributeName="opacity" values="{MORPH_OPACITY}" '
-            f'keyTimes="{key_times}" dur="{ANIMATION_SECONDS}s" repeatCount="indefinite"/>'
+            f'keyTimes="{key_times}" begin="{INTRO_SECONDS}s" dur="{ANIMATION_SECONDS}s" repeatCount="indefinite"/>'
             "</use>"
         )
     return "\n        ".join(uses)
 
 
-def stage_opacity(stage: str) -> str:
-    values = {
-        "portrait": (1, 1, 0.28, 0, 0, 0, 0, 0, 0, 0, 0, 0.28, 1, 1),
-        "csharp": (0, 0, 0.22, 1, 1, 0.22, 0, 0, 0, 0, 0, 0, 0, 0),
-        "flutter": (0, 0, 0, 0, 0, 0.22, 1, 1, 0.22, 0, 0, 0, 0, 0),
-        "cplusplus": (0, 0, 0, 0, 0, 0, 0, 0, 0.22, 1, 1, 0.22, 0, 0),
-    }[stage]
-    return ";".join(str(value) for value in values)
-
-
-def state_group(stage: str, theme: dict[str, str]) -> str:
+def particle_layer() -> str:
+    """Render one visible particle map: dense targets plus transition particles."""
     key_times = ";".join(f"{value:.3f}" for value in MORPH_KEY_TIMES)
-    if stage == "flutter":
-        light, middle, dark = flutter_plane_path_data()
-        content = (
-            f'<path d="{light}" fill="{theme["flutter_light"]}"/>\n'
-            f'        <path d="{middle}" fill="{theme["flutter_mid"]}"/>\n'
-            f'        <path d="{dark}" fill="{theme["flutter_dark"]}"/>'
+    targets = []
+    for stage in ("portrait", "csharp", "flutter", "python"):
+        base_opacity = "1" if stage == "portrait" else "0"
+        targets.append(
+            f'<g id="particle-{stage}" opacity="{base_opacity}">\n'
+            f'          <animate attributeName="opacity" values="{TARGET_OPACITY[stage]}" '
+            f'keyTimes="{key_times}" begin="{INTRO_SECONDS}s" dur="{ANIMATION_SECONDS}s" repeatCount="indefinite"/>\n'
+            f'          <path d="{stage_path_data(stage)}"/>\n'
+            "        </g>"
         )
-    else:
-        content = f'<path d="{stage_path_data(stage)}"/>'
     return (
-        f'<g id="particle-{stage}" opacity="0">\n'
-        f'        <animate attributeName="opacity" values="{stage_opacity(stage)}" '
-        f'keyTimes="{key_times}" dur="{ANIMATION_SECONDS}s" repeatCount="indefinite"/>\n'
-        f'        {content}\n'
-        "      </g>"
+        '<g id="visual-map-particles">\n'
+        f'        {"\n        ".join(targets)}\n'
+        '        <g id="moving-particles">\n'
+        f'          {animated_particle_uses()}\n'
+        '        </g>\n'
+        '      </g>'
     )
 
 
@@ -395,15 +448,15 @@ def row_svg(index: int, label: str, value: str, theme: dict[str, str]) -> str:
     label_color = theme["accent"] if label.startswith("CORE.") else (
         theme["ui"] if label.startswith("GRID.") else theme["muted"]
     )
-    value_length = max(74, min(302, round(len(value) * 8.45)))
+    value_length = max(74, min(318, round(len(value) * 7.35)))
     delay = 0.42 + index * 0.11
     return (
         f'<g opacity="0">\n'
         f'        <animate attributeName="opacity" values="0;1" dur=".34s" begin="{delay:.2f}s" fill="freeze"/>\n'
         f'        <animateTransform attributeName="transform" type="translate" values="-8 0;0 0" dur=".34s" begin="{delay:.2f}s" fill="freeze"/>\n'
-        f'        <text x="526" y="{y:.1f}" fill="{label_color}" font-size="14" '
+        f'        <text x="526" y="{y:.1f}" fill="{label_color}" font-size="12" '
         f'textLength="246" lengthAdjust="spacing">{escape(leader(label))}</text>\n'
-        f'        <text x="790" y="{y:.1f}" fill="{theme["text"]}" font-size="14" '
+        f'        <text x="790" y="{y:.1f}" fill="{theme["text"]}" font-size="12" '
         f'textLength="{value_length}" lengthAdjust="spacing">{escape(value)}</text>\n'
         "      </g>"
     )
@@ -415,16 +468,11 @@ def render_svg(theme_name: str) -> str:
         row_svg(index, label, value, theme)
         for index, (label, value) in enumerate(ROWS)
     )
-    states = "\n      ".join(
-        state_group(stage, theme)
-        for stage in ("portrait", "csharp", "flutter", "cplusplus")
-    )
-    moving_particles = animated_particle_uses()
+    particles = particle_layer()
     title = f"Renan Augusto - {theme_name} animated technical profile"
     desc = (
-        "Animated terminal profile. A sharp, identity-preserving particle portrait "
-        "transforms into C#, Flutter and C++ symbols, while verified system details "
-        "appear in the adjacent panel."
+        "Animated terminal profile. One visible particle map transitions between "
+        "Renan Augusto's portrait and the C#, Flutter and Python symbols."
     )
     return (
         f'''<?xml version="1.0" encoding="UTF-8"?>
@@ -465,10 +513,7 @@ def render_svg(theme_name: str) -> str:
     <animate attributeName="stroke-opacity" values=".55;1;.55" dur="2.4s" repeatCount="indefinite"/>
   </path>
   <g fill="url(#particle-gradient)" shape-rendering="crispEdges">
-      {states}
-      <g id="moving-particles">
-        {moving_particles}
-      </g>
+      {particles}
   </g>
 
   <rect x="512" y="110" width="620" height="420" rx="15" fill="{theme["panel"]}" stroke="{theme["border"]}" stroke-width="1.5"/>
