@@ -24,8 +24,8 @@ Não envie o token, nem o adicione a um arquivo local do repositório.
 
 O banner já possui quatro entregáveis complementares:
 
-- `dark.svg` e `light.svg`: versões estáticas, acessíveis e usadas quando a pessoa prefere menos movimento.
-- `visual-map-dark.gif` e `visual-map-light.gif`: o `VISUAL.MAP` animado, usado no README. O GitHub não reproduz animações embutidas em SVG.
+- `dark.svg` e `light.svg`: versões estáticas e acessíveis, mantidas como alternativa manual.
+- `visual-map-dark.gif` e `visual-map-light.gif`: o `VISUAL.MAP` animado, sempre usado no README. O GitHub não reproduz animações embutidas em SVG.
 - `assets/profile/portrait-dither-reference.png`: referência 1-bit do retrato, usada somente para gerar os paths locais; o SVG publicado não incorpora imagens externas.
 
 Para regenerar os quatro banners após atualizar dados confirmados do perfil ou a referência de retrato, execute:
@@ -35,7 +35,7 @@ python tools/generate_profile_assets.py
 python -m unittest discover -s tests -v
 ```
 
-O banner exibe somente fatos públicos confirmados. Campos sem confirmação — como origem, formação, portfólio ou links sociais — são omitidos em vez de receber texto de preenchimento. O `VISUAL.MAP` animado transforma o retrato em partículas nos símbolos de C#, Flutter e C++, sem cartões sobre a foto. As URLs do README carregam a versão `?v=20260826` para reduzir problemas de cache após o próximo push.
+O banner exibe somente fatos públicos confirmados. Campos sem confirmação — como origem, formação, portfólio ou links sociais — são omitidos em vez de receber texto de preenchimento. O `VISUAL.MAP` animado transforma o retrato em partículas nos símbolos de C#, Flutter e C++, sem cartões sobre a foto. As URLs do README carregam a versão `?v=20260826-animated` para reduzir problemas de cache após o próximo push.
 
 ## Diagnóstico de cache
 

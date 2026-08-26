@@ -198,17 +198,17 @@ class ProfileAssetTests(unittest.TestCase):
         second = profile_assets.draw_gif_frame("dark", 15)
         self.assertEqual(first.tobytes(), second.tobytes())
 
-    def test_readme_prefers_static_assets_when_motion_is_reduced(self) -> None:
+    def test_readme_always_uses_the_animated_gif(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         expected_sources = (
-            'dark.svg?v=20260826',
-            'light.svg?v=20260826',
-            'visual-map-dark.gif?v=20260826',
-            'visual-map-light.gif?v=20260826',
+            'visual-map-dark.gif?v=20260826-animated',
+            'visual-map-light.gif?v=20260826-animated',
         )
         positions = [readme.index(source) for source in expected_sources]
         self.assertEqual(positions, sorted(positions))
-        self.assertIn("prefers-reduced-motion: reduce", readme)
+        self.assertNotIn("prefers-reduced-motion", readme)
+        self.assertNotIn("dark.svg", readme)
+        self.assertNotIn("light.svg", readme)
         self.assertIn("Mapa visual animado de Renan Augusto", readme)
 
 
