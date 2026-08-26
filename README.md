@@ -1,7 +1,8 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/light.svg">
-  <img alt="Renan Augusto — Software Engineer, Game Developer e entusiasta de sistemas embarcados" src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/light.svg">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/dark.svg?v=20260825">
+  <source media="(prefers-reduced-motion: reduce)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/light.svg?v=20260825">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/visual-map-dark.gif?v=20260825">
+  <img alt="Mapa visual de Renan Augusto conectando software, desenvolvimento de jogos, sistemas embarcados e automação." src="https://raw.githubusercontent.com/RenanAugustoKwn/RenanAugustoKwn/main/visual-map-light.gif?v=20260825">
 </picture>
 
 # Renan Augusto

@@ -22,7 +22,20 @@ Não envie o token, nem o adicione a um arquivo local do repositório.
 
 ## 3. Personalizar o banner
 
-`dark.svg` e `light.svg` são um banner funcional de base. Para substituir o monograma `RA` pelo retrato animado descrito no Master Prompt, ainda são necessários uma foto nítida de rosto e ombros, os três logos de referência e seus dados de localização, formação e portfólio. Mantenha as duas versões para que o `<picture>` continue atendendo os temas claro e escuro.
+O banner já possui quatro entregáveis complementares:
+
+- `dark.svg` e `light.svg`: versões estáticas, acessíveis e usadas quando a pessoa prefere menos movimento.
+- `visual-map-dark.gif` e `visual-map-light.gif`: o `VISUAL.MAP` animado, usado no README. O GitHub não reproduz animações embutidas em SVG.
+- `assets/profile/portrait-dither-reference.png`: referência 1-bit do retrato, usada somente para gerar os paths locais; o SVG publicado não incorpora imagens externas.
+
+Para regenerar os quatro banners após atualizar dados confirmados do perfil ou a referência de retrato, execute:
+
+```powershell
+python tools/generate_profile_assets.py
+python -m unittest discover -s tests -v
+```
+
+Mantenha campos pessoais sem confirmação como `Not published`; não invente origem, formação, portfólio ou links sociais. As URLs do README carregam uma versão `?v=20260825` para reduzir problemas de cache após o próximo push.
 
 ## Diagnóstico de cache
 
