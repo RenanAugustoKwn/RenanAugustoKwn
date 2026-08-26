@@ -31,36 +31,36 @@
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/linkedin.svg"
-      width="36"
-      height="36"
+      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/linkedin.png"
+      width="32"
+      height="32"
       alt="LinkedIn"
     />
   </a>&nbsp;&nbsp;&nbsp;
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/instagram.svg"
-      width="36"
-      height="36"
+      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/instagram.png"
+      width="32"
+      height="32"
       alt="Instagram"
     />
   </a>&nbsp;&nbsp;&nbsp;
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/discord.svg"
-      width="36"
-      height="36"
+      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/discord.png"
+      width="32"
+      height="32"
       alt="Discord"
     />
   </a>&nbsp;&nbsp;&nbsp;
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/microsoftoutlook.svg"
-      width="36"
-      height="36"
+      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/microsoftoutlook.png"
+      width="32"
+      height="32"
       alt="Email"
     />
   </a>
