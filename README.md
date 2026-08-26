@@ -31,7 +31,7 @@
 <div align="center">
   <a href="https://www.linkedin.com/in/renan-augusto-kwn/">
     <img
-      src="https://www.flaticon.com/free-icon/linkedin_3991642?term=linkedin&page=1&position=3&origin=tag&related_id=3991642"
+      src="https://api.iconify.design/simple-icons/linkedin.svg?color=%230A66C2"
       width="32"
       height="32"
       alt="LinkedIn"
@@ -40,7 +40,7 @@
 
   <a href="https://www.instagram.com/renankwn_/">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/instagram.png"
+      src="https://api.iconify.design/simple-icons/instagram.svg?color=%23E4405F"
       width="32"
       height="32"
       alt="Instagram"
@@ -49,7 +49,7 @@
 
   <a href="https://discord.gg/VVW7FgdkDX">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/discord.png"
+      src="https://api.iconify.design/simple-icons/discord.svg?color=%235865F2"
       width="32"
       height="32"
       alt="Discord"
@@ -58,7 +58,7 @@
 
   <a href="mailto:renanaugustokwn@outlook.com">
     <img
-      src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/microsoftoutlook.png"
+      src="https://api.iconify.design/simple-icons/microsoftoutlook.svg?color=%230078D4"
       width="32"
       height="32"
       alt="Email"
