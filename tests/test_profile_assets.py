@@ -3,9 +3,9 @@ from __future__ import annotations
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
-import re
 
 from PIL import Image, ImageChops
+from tools import generate_profile_assets as profile_assets
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +22,17 @@ REQUIRED_ROWS = (
     "GRID.MAIL",
     "GRID.LINKEDIN",
     "GRID.GITHUB",
+)
+FORBIDDEN_MAP_COPY = (
+    "SOFTWARE",
+    "GAME DEV",
+    "EMBEDDED",
+    "AUTOMATION",
+    "CORE SIGNAL",
+    "MAP BOOT",
+    "ACTIVE ROUTE",
+    "4 LINKED DISCIPLINES",
+    "STATIC CORE + ANIMATED PULSE",
 )
 FORBIDDEN_TAGS = {
     "animate",
@@ -98,6 +109,17 @@ class ProfileAssetTests(unittest.TestCase):
             for label in REQUIRED_ROWS:
                 self.assertIn(label, text)
             self.assertNotIn("not published", text.casefold())
+            for forbidden in FORBIDDEN_MAP_COPY:
+                self.assertNotIn(forbidden, text)
+            for element in elements:
+                if local_name(element.tag) != "text":
+                    continue
+                x = float(element.attrib.get("x", "999"))
+                y = float(element.attrib.get("y", "0"))
+                self.assertFalse(
+                    x < 486 and y >= 160,
+                    "The portrait area must not contain text overlays.",
+                )
             for element in elements:
                 self.assertNotIn("href", {local_name(key) for key in element.attrib})
                 for value in element.attrib.values():
@@ -147,18 +169,47 @@ class ProfileAssetTests(unittest.TestCase):
                     "SYSTEM.INFO must animate independently.",
                 )
 
+                key_frames = {}
+                for index in (0, 9, 15, 21, 29):
+                    image.seek(index)
+                    key_frames[index] = image.convert("RGB").crop((49, 110, 487, 531))
+                for first, second in ((0, 9), (9, 15), (15, 21), (21, 29)):
+                    self.assertIsNotNone(
+                        ImageChops.difference(key_frames[first], key_frames[second]).getbbox(),
+                        "Each particle target must be visibly distinct.",
+                    )
+
+    def test_particle_sequence_has_named_targets_and_is_deterministic(self) -> None:
+        expected_states = {
+            0: "portrait",
+            9: "csharp",
+            15: "flutter",
+            21: "cplusplus",
+            29: "portrait",
+        }
+        for frame_index, expected in expected_states.items():
+            source, target, transition = profile_assets.morph_state(
+                profile_assets.elapsed_seconds(frame_index)
+            )
+            self.assertEqual((source, target), (expected, expected))
+            self.assertEqual(transition, 0.0)
+
+        first = profile_assets.draw_gif_frame("dark", 15)
+        second = profile_assets.draw_gif_frame("dark", 15)
+        self.assertEqual(first.tobytes(), second.tobytes())
+
     def test_readme_prefers_static_assets_when_motion_is_reduced(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         expected_sources = (
-            'dark.svg?v=20260825',
-            'light.svg?v=20260825',
-            'visual-map-dark.gif?v=20260825',
-            'visual-map-light.gif?v=20260825',
+            'dark.svg?v=20260826',
+            'light.svg?v=20260826',
+            'visual-map-dark.gif?v=20260826',
+            'visual-map-light.gif?v=20260826',
         )
         positions = [readme.index(source) for source in expected_sources]
         self.assertEqual(positions, sorted(positions))
         self.assertIn("prefers-reduced-motion: reduce", readme)
-        self.assertIn("Mapa visual de Renan Augusto", readme)
+        self.assertIn("Mapa visual animado de Renan Augusto", readme)
 
 
 if __name__ == "__main__":

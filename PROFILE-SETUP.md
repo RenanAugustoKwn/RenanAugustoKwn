@@ -35,7 +35,7 @@ python tools/generate_profile_assets.py
 python -m unittest discover -s tests -v
 ```
 
-O banner exibe somente fatos públicos confirmados. Campos sem confirmação — como origem, formação, portfólio ou links sociais — são omitidos em vez de receber texto de preenchimento. As URLs do README carregam uma versão `?v=20260825` para reduzir problemas de cache após o próximo push.
+O banner exibe somente fatos públicos confirmados. Campos sem confirmação — como origem, formação, portfólio ou links sociais — são omitidos em vez de receber texto de preenchimento. O `VISUAL.MAP` animado transforma o retrato em partículas nos símbolos de C#, Flutter e C++, sem cartões sobre a foto. As URLs do README carregam a versão `?v=20260826` para reduzir problemas de cache após o próximo push.
 
 ## Diagnóstico de cache
 
