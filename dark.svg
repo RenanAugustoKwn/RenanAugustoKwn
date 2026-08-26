@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1180" height="610" viewBox="0 0 1180 610" role="img" aria-labelledby="title desc">
   <title id="title">Renan Augusto - dark technical profile</title>
-  <desc id="desc">Static accessible terminal profile. The Visual Map connects software, game development, embedded systems and automation to an abstract portrait traced as one-bit SVG paths; unavailable profile facts are marked Not published.</desc>
+  <desc id="desc">Static accessible terminal profile. The Visual Map connects software, game development, embedded systems and automation to an abstract portrait traced as one-bit SVG paths; only verified public profile facts are included.</desc>
   <defs>
     <linearGradient id="header" x1="0" y1="0" x2="1" y2="0">
       <stop stop-color="#111C34"/>
@@ -1336,38 +1336,26 @@
   <text x="1110" y="145" text-anchor="end" fill="#98A8C2" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">PUBLIC / VERIFIED FIELDS</text>
   <path d="M526 160H1110" stroke="#314763" stroke-width="1"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">
-      <text x="526" y="177.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">SUBJECT ···············</text>
-      <text x="790" y="177.0" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Renan Augusto</text>
-      <text x="526" y="199.4" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">ROLE ··················</text>
-      <text x="790" y="199.4" fill="#F6F8FF" font-size="14" textLength="144" lengthAdjust="spacing">Software Engineer</text>
-      <text x="526" y="221.8" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">ORIGIN ················</text>
-      <text x="790" y="221.8" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="244.2" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">EDUCATION ·············</text>
-      <text x="790" y="244.2" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="266.6" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">STATUS ················</text>
-      <text x="790" y="266.6" fill="#F6F8FF" font-size="14" textLength="74" lengthAdjust="spacing">Building</text>
-      <text x="526" y="289.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">TOOLCHAIN ·············</text>
-      <text x="790" y="289.0" fill="#F6F8FF" font-size="14" textLength="186" lengthAdjust="spacing">Unity / Unreal / ESP32</text>
-      <text x="526" y="311.4" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.LANG ·············</text>
-      <text x="790" y="311.4" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="333.8" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.FRONTEND ·········</text>
-      <text x="790" y="333.8" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="356.2" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.BACKEND ··········</text>
-      <text x="790" y="356.2" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="378.6" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.DATABASE ·········</text>
-      <text x="790" y="378.6" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="401.0" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.INFRA ············</text>
-      <text x="790" y="401.0" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="423.4" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.MAIL ·············</text>
-      <text x="790" y="423.4" fill="#F6F8FF" font-size="14" textLength="228" lengthAdjust="spacing">renanaugustokwn@outlook.com</text>
-      <text x="526" y="445.8" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.PORTFOLIO ········</text>
-      <text x="790" y="445.8" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
-      <text x="526" y="468.2" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.LINKEDIN ·········</text>
-      <text x="790" y="468.2" fill="#F6F8FF" font-size="14" textLength="144" lengthAdjust="spacing">renan-augusto-kwn</text>
-      <text x="526" y="490.6" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.GITHUB ···········</text>
-      <text x="790" y="490.6" fill="#F6F8FF" font-size="14" textLength="135" lengthAdjust="spacing">@RenanAugustoKwn</text>
-      <text x="526" y="513.0" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.FACEBOOK ·········</text>
-      <text x="790" y="513.0" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Not published</text>
+      <text x="526" y="183.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">SUBJECT ···············</text>
+      <text x="790" y="183.0" fill="#F6F8FF" font-size="14" textLength="110" lengthAdjust="spacing">Renan Augusto</text>
+      <text x="526" y="217.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">ROLE ··················</text>
+      <text x="790" y="217.0" fill="#F6F8FF" font-size="14" textLength="144" lengthAdjust="spacing">Software Engineer</text>
+      <text x="526" y="251.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">FOCUS ·················</text>
+      <text x="790" y="251.0" fill="#F6F8FF" font-size="14" textLength="161" lengthAdjust="spacing">Game Dev / Embedded</text>
+      <text x="526" y="285.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">STATUS ················</text>
+      <text x="790" y="285.0" fill="#F6F8FF" font-size="14" textLength="74" lengthAdjust="spacing">Building</text>
+      <text x="526" y="319.0" fill="#98A8C2" font-size="14" textLength="246" lengthAdjust="spacing">TOOLCHAIN ·············</text>
+      <text x="790" y="319.0" fill="#F6F8FF" font-size="14" textLength="186" lengthAdjust="spacing">Unity / Unreal / ESP32</text>
+      <text x="526" y="353.0" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.ENGINE ···········</text>
+      <text x="790" y="353.0" fill="#F6F8FF" font-size="14" textLength="118" lengthAdjust="spacing">Unity / Unreal</text>
+      <text x="526" y="387.0" fill="#10B981" font-size="14" textLength="246" lengthAdjust="spacing">CORE.HARDWARE ·········</text>
+      <text x="790" y="387.0" fill="#F6F8FF" font-size="14" textLength="152" lengthAdjust="spacing">ESP32 / Automation</text>
+      <text x="526" y="421.0" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.MAIL ·············</text>
+      <text x="790" y="421.0" fill="#F6F8FF" font-size="14" textLength="228" lengthAdjust="spacing">renanaugustokwn@outlook.com</text>
+      <text x="526" y="455.0" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.LINKEDIN ·········</text>
+      <text x="790" y="455.0" fill="#F6F8FF" font-size="14" textLength="144" lengthAdjust="spacing">renan-augusto-kwn</text>
+      <text x="526" y="489.0" fill="#22D3EE" font-size="14" textLength="246" lengthAdjust="spacing">GRID.GITHUB ···········</text>
+      <text x="790" y="489.0" fill="#F6F8FF" font-size="14" textLength="135" lengthAdjust="spacing">@RenanAugustoKwn</text>
   </g>
   <path d="M526 541H1110" stroke="#314763" stroke-width="1"/>
   <text x="526" y="562" fill="#98A8C2" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">$ build / learn / ship / repeat</text>

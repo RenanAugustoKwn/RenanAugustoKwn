@@ -21,6 +21,8 @@ WIDTH, HEIGHT = 1180, 610
 FRAME_COUNT = 36
 # GIF timing is quantized in hundredths of a second. This mix is exactly 14.2 s.
 FRAME_DURATIONS_MS = (400,) * 24 + (390,) * 4 + (380,) * 8
+LOOP_SECONDS = sum(FRAME_DURATIONS_MS) / 1000
+INTRO_SECONDS = 3.2
 PORTRAIT_CROP = (120, 0, 1134, 1050)
 PORTRAIT_SIZE = (196, 248)
 PORTRAIT_POSITION = (168, 166)
@@ -28,20 +30,14 @@ PORTRAIT_POSITION = (168, 166)
 ROWS: tuple[tuple[str, str], ...] = (
     ("SUBJECT", "Renan Augusto"),
     ("ROLE", "Software Engineer"),
-    ("ORIGIN", "Not published"),
-    ("EDUCATION", "Not published"),
+    ("FOCUS", "Game Dev / Embedded"),
     ("STATUS", "Building"),
     ("TOOLCHAIN", "Unity / Unreal / ESP32"),
-    ("CORE.LANG", "Not published"),
-    ("CORE.FRONTEND", "Not published"),
-    ("CORE.BACKEND", "Not published"),
-    ("CORE.DATABASE", "Not published"),
-    ("CORE.INFRA", "Not published"),
+    ("CORE.ENGINE", "Unity / Unreal"),
+    ("CORE.HARDWARE", "ESP32 / Automation"),
     ("GRID.MAIL", "renanaugustokwn@outlook.com"),
-    ("GRID.PORTFOLIO", "Not published"),
     ("GRID.LINKEDIN", "renan-augusto-kwn"),
     ("GRID.GITHUB", "@RenanAugustoKwn"),
-    ("GRID.FACEBOOK", "Not published"),
 )
 
 NODES: tuple[tuple[str, tuple[int, int, int, int], tuple[int, int]], ...] = (
@@ -92,6 +88,52 @@ def with_alpha(value: str, alpha: int) -> tuple[int, int, int, int]:
     return (*hex_to_rgb(value), alpha)
 
 
+def blend_rgb(
+    foreground: tuple[int, int, int],
+    background: tuple[int, int, int],
+    opacity: float,
+) -> tuple[int, int, int]:
+    """Blend a semantic color into a panel without relying on GIF alpha."""
+    bounded = min(1.0, max(0.0, opacity))
+    return tuple(
+        round(channel_background + (channel_foreground - channel_background) * bounded)
+        for channel_foreground, channel_background in zip(foreground, background)
+    )
+
+
+def elapsed_seconds(frame_index: int) -> float:
+    return sum(FRAME_DURATIONS_MS[:frame_index]) / 1000
+
+
+def ramp(value: float) -> float:
+    """A compact smoothstep used by the boot reveal."""
+    bounded = min(1.0, max(0.0, value))
+    return bounded * bounded * (3 - 2 * bounded)
+
+
+def row_reveal(elapsed: float, row_index: int) -> float:
+    """Keep every fact visible while progressively strengthening it at boot."""
+    if elapsed >= INTRO_SECONDS:
+        return 1.0
+    delay = 0.12 + row_index * 0.23
+    return 0.56 + 0.44 * ramp((elapsed - delay) / 0.72)
+
+
+def active_system_row(elapsed: float) -> int:
+    if elapsed < INTRO_SECONDS:
+        return min(len(ROWS) - 1, int(elapsed / INTRO_SECONDS * len(ROWS)))
+    scan_progress = (elapsed - INTRO_SECONDS) / (LOOP_SECONDS - INTRO_SECONDS)
+    return int(scan_progress * len(ROWS)) % len(ROWS)
+
+
+def svg_row_y(index: int) -> float:
+    return 183 + index * 34.0
+
+
+def gif_row_y(index: int) -> float:
+    return 173 + index * 34.0
+
+
 @lru_cache(maxsize=1)
 def portrait_mask() -> Image.Image:
     """Return the supplied, identity-preserving portrait as a compact 1-bit mask."""
@@ -131,7 +173,7 @@ def leader(label: str) -> str:
 
 
 def row_svg(index: int, label: str, value: str, theme: dict[str, str]) -> str:
-    y = 177 + index * 22.4
+    y = svg_row_y(index)
     label_color = theme["accent"] if label.startswith("CORE.") else (
         theme["ui"] if label.startswith("GRID.") else theme["muted"]
     )
@@ -173,8 +215,8 @@ def render_svg(theme_name: str) -> str:
     desc = (
         "Static accessible terminal profile. The Visual Map connects software, "
         "game development, embedded systems and automation to an abstract "
-        "portrait traced as one-bit SVG paths; unavailable profile facts are "
-        "marked Not published."
+        "portrait traced as one-bit SVG paths; only verified public profile "
+        "facts are included."
     )
     return (
         f'''<?xml version="1.0" encoding="UTF-8"?>
@@ -289,7 +331,11 @@ def draw_centered(
 
 def draw_gif_frame(theme_name: str, frame_index: int) -> Image.Image:
     theme = THEMES[theme_name]
-    progress = frame_index / FRAME_COUNT
+    elapsed = elapsed_seconds(frame_index)
+    progress = elapsed / LOOP_SECONDS
+    intro_progress = min(1.0, elapsed / INTRO_SECONDS)
+    active_row = active_system_row(elapsed)
+    active_route = int(progress * len(NODES)) % len(NODES)
     image = Image.new("RGB", (WIDTH, HEIGHT), hex_to_rgb(theme["background"]))
     draw = ImageDraw.Draw(image)
     mono12 = get_font(12)
@@ -319,7 +365,10 @@ def draw_gif_frame(theme_name: str, frame_index: int) -> Image.Image:
     draw.text((461 - (right_box[2] - right_box[0]), 133), right_text, font=mono12, fill=hex_to_rgb(theme["muted"]))
     draw.line((74, 160, 461, 160), fill=hex_to_rgb(theme["border"]), width=1)
     draw.text((526, 130), "SYSTEM.INFO", font=mono17, fill=hex_to_rgb(theme["ui"]))
-    header_text = "PUBLIC / VERIFIED FIELDS"
+    if elapsed < INTRO_SECONDS:
+        header_text = f"BOOT SEQUENCE / {round(intro_progress * 100):03d}%"
+    else:
+        header_text = f"LIVE SCAN / {active_row + 1:02d}/{len(ROWS):02d}"
     header_box = draw.textbbox((0, 0), header_text, font=mono12)
     draw.text((1110 - (header_box[2] - header_box[0]), 133), header_text, font=mono12, fill=hex_to_rgb(theme["muted"]))
     draw.line((526, 160, 1110, 160), fill=hex_to_rgb(theme["border"]), width=1)
@@ -327,12 +376,23 @@ def draw_gif_frame(theme_name: str, frame_index: int) -> Image.Image:
     # Identity-preserving dithered portrait. The published SVG uses the same
     # source as individual paths; the GIF uses a 1-bit mask for compactness.
     portrait = hex_to_rgb(theme["portrait"])
+    panel_color = hex_to_rgb(theme["panel"])
+    map_strength = 0.74 + 0.26 * ramp(intro_progress)
+    portrait_tint = blend_rgb(portrait, panel_color, map_strength)
     px, py = PORTRAIT_POSITION
     pw, ph = PORTRAIT_SIZE
-    draw.rounded_rectangle((px - 6, py - 6, px + pw + 6, py + ph + 6), radius=14, fill=hex_to_rgb(theme["surface_alt"]), outline=portrait, width=1)
-    image.paste(Image.new("RGB", PORTRAIT_SIZE, portrait), PORTRAIT_POSITION, portrait_mask())
+    draw.rounded_rectangle((px - 6, py - 6, px + pw + 6, py + ph + 6), radius=14, fill=hex_to_rgb(theme["surface_alt"]), outline=portrait_tint, width=1)
+    image.paste(Image.new("RGB", PORTRAIT_SIZE, portrait_tint), PORTRAIT_POSITION, portrait_mask())
     draw = ImageDraw.Draw(image)
-    draw.line((181, 423, 351, 423), fill=hex_to_rgb(theme["portrait"]), width=1)
+    orbit = (elapsed / 3.55) % 1
+    radius = 48 + orbit * 96
+    ring_color = blend_rgb(
+        hex_to_rgb(theme["ui"]),
+        panel_color,
+        0.14 + 0.25 * (1 - orbit),
+    )
+    draw.ellipse((266 - radius, 292 - radius, 266 + radius, 292 + radius), outline=ring_color, width=1)
+    draw.line((181, 423, 351, 423), fill=portrait_tint, width=1)
 
     # Base connectors plus a moving, low-frequency pulse.
     route_colors = (theme["ui"], theme["portrait"], theme["accent"], theme["ui"])
@@ -342,12 +402,26 @@ def draw_gif_frame(theme_name: str, frame_index: int) -> Image.Image:
         center = (x + w / 2, y + h / 2)
         node_centers.append(center)
         route_color = route_colors[index]
-        dashed_line(draw, center, target, with_alpha(route_color, 140), width=2)
-        active = ((progress * 4 - index) % 4) < 1
-        outline = hex_to_rgb(route_color)
+        route_rgb = hex_to_rgb(route_color)
+        node_strength = 0.62 + 0.38 * ramp((elapsed - index * 0.24) / 1.1)
+        dashed_line(
+            draw,
+            center,
+            target,
+            blend_rgb(route_rgb, panel_color, 0.34 + 0.32 * node_strength),
+            width=2,
+        )
+        active = index == active_route
+        outline = blend_rgb(route_rgb, panel_color, node_strength)
         fill = hex_to_rgb(theme["node_fill"])
         draw.rounded_rectangle((x, y, x + w, y + h), radius=11, fill=fill, outline=outline, width=2 if active else 1)
-        draw_centered(draw, (center[0], center[1] + 1), label, mono15, hex_to_rgb(theme["text"]))
+        draw_centered(
+            draw,
+            (center[0], center[1] + 1),
+            label,
+            mono15,
+            blend_rgb(hex_to_rgb(theme["text"]), fill, node_strength),
+        )
 
         pulse_progress = (progress * 1.25 - index / 4) % 1
         px = center[0] + (target[0] - center[0]) * pulse_progress
@@ -360,25 +434,70 @@ def draw_gif_frame(theme_name: str, frame_index: int) -> Image.Image:
         draw = ImageDraw.Draw(image)
 
     # Core label stays fully readable in every frame.
-    draw.rounded_rectangle((211, 332, 321, 375), radius=11, fill=hex_to_rgb(theme["surface"]), outline=portrait, width=2)
-    draw_centered(draw, (266, 349), "RENAN", mono15, hex_to_rgb(theme["text"]))
-    draw_centered(draw, (266, 367), "CORE SIGNAL", mono12, hex_to_rgb(theme["muted"]))
-    active_name = NODES[int(progress * len(NODES)) % len(NODES)][0]
-    draw.text((74, 500), f"ACTIVE ROUTE / {active_name}", font=mono12, fill=hex_to_rgb(theme["muted"]))
+    core_strength = 0.72 + 0.28 * ramp(intro_progress)
+    draw.rounded_rectangle((211, 332, 321, 375), radius=11, fill=hex_to_rgb(theme["surface"]), outline=portrait_tint, width=2)
+    draw_centered(draw, (266, 349), "RENAN", mono15, blend_rgb(hex_to_rgb(theme["text"]), panel_color, core_strength))
+    draw_centered(draw, (266, 367), "CORE SIGNAL", mono12, blend_rgb(hex_to_rgb(theme["muted"]), panel_color, core_strength))
+    active_name = NODES[active_route][0]
+    if elapsed < INTRO_SECONDS:
+        map_status = f"MAP BOOT / {round(intro_progress * 100):03d}%"
+    else:
+        map_status = f"ACTIVE ROUTE / {active_name}"
+    draw.text((74, 500), map_status, font=mono12, fill=hex_to_rgb(theme["muted"]))
 
-    # System fields. Unknown values intentionally remain explicit rather than invented.
+    # System fields: an accessibility-safe boot reveal followed by a live scan.
+    # Values never disappear, so the first GIF frame remains self-contained.
     for index, (label, value) in enumerate(ROWS):
-        y = 168 + index * 22.4
-        label_color = theme["accent"] if label.startswith("CORE.") else (
+        y = gif_row_y(index)
+        label_hex = theme["accent"] if label.startswith("CORE.") else (
             theme["ui"] if label.startswith("GRID.") else theme["muted"]
         )
-        draw.text((526, y), leader(label).replace("·", "."), font=mono14, fill=hex_to_rgb(label_color))
-        draw.text((790, y), value, font=mono14, fill=hex_to_rgb(theme["text"]))
+        is_active = index == active_row
+        row_strength = row_reveal(elapsed, index)
+        if elapsed >= INTRO_SECONDS and not is_active:
+            row_strength = 0.78
+        if is_active:
+            y_int = round(y)
+            draw.rounded_rectangle(
+                (520, y_int - 7, 1122, y_int + 14),
+                radius=5,
+                fill=blend_rgb(hex_to_rgb(theme["ui"]), panel_color, 0.105),
+            )
+            draw.rectangle(
+                (520, y_int - 7, 523, y_int + 14),
+                fill=blend_rgb(hex_to_rgb(theme["ui"]), panel_color, 0.88),
+            )
+            draw.ellipse(
+                (1103, y_int - 1, 1109, y_int + 5),
+                fill=blend_rgb(hex_to_rgb(theme["accent"]), panel_color, 0.92),
+            )
+            row_strength = 1.0
+        draw.text(
+            (526, y),
+            leader(label).replace("·", "."),
+            font=mono14,
+            fill=blend_rgb(hex_to_rgb(label_hex), panel_color, row_strength),
+        )
+        draw.text(
+            (790, y),
+            value,
+            font=mono14,
+            fill=blend_rgb(hex_to_rgb(theme["text"]), panel_color, row_strength),
+        )
     draw.line((526, 541, 1110, 541), fill=hex_to_rgb(theme["border"]), width=1)
     draw.text((526, 551), "$ build / learn / ship / repeat", font=mono12, fill=hex_to_rgb(theme["muted"]))
-    state_text = "SYSTEM READY"
+    state_text = (
+        f"INDEXING / {active_row + 1:02d}/{len(ROWS):02d}"
+        if elapsed < INTRO_SECONDS
+        else "SYSTEM READY"
+    )
     state_box = draw.textbbox((0, 0), state_text, font=mono12)
-    draw.text((1110 - (state_box[2] - state_box[0]), 551), state_text, font=mono12, fill=hex_to_rgb(theme["accent"]))
+    draw.text(
+        (1110 - (state_box[2] - state_box[0]), 551),
+        state_text,
+        font=mono12,
+        fill=hex_to_rgb(theme["accent"]),
+    )
     return image
 
 

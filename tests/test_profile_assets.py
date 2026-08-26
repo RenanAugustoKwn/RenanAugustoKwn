@@ -14,20 +14,14 @@ GIF_NAMES = ("visual-map-dark.gif", "visual-map-light.gif")
 REQUIRED_ROWS = (
     "SUBJECT",
     "ROLE",
-    "ORIGIN",
-    "EDUCATION",
+    "FOCUS",
     "STATUS",
     "TOOLCHAIN",
-    "CORE.LANG",
-    "CORE.FRONTEND",
-    "CORE.BACKEND",
-    "CORE.DATABASE",
-    "CORE.INFRA",
+    "CORE.ENGINE",
+    "CORE.HARDWARE",
     "GRID.MAIL",
-    "GRID.PORTFOLIO",
     "GRID.LINKEDIN",
     "GRID.GITHUB",
-    "GRID.FACEBOOK",
 )
 FORBIDDEN_TAGS = {
     "animate",
@@ -92,15 +86,18 @@ class ProfileAssetTests(unittest.TestCase):
                 "The identity-preserving portrait must be represented by SVG paths.",
             )
             self.assertGreaterEqual(
-                sum("textLength" in element.attrib for element in elements), 32
+                sum("textLength" in element.attrib for element in elements),
+                len(REQUIRED_ROWS) * 2,
             )
             self.assertGreaterEqual(
-                sum("lengthAdjust" in element.attrib for element in elements), 32
+                sum("lengthAdjust" in element.attrib for element in elements),
+                len(REQUIRED_ROWS) * 2,
             )
 
             text = " ".join(part.strip() for part in root.itertext() if part.strip())
             for label in REQUIRED_ROWS:
                 self.assertIn(label, text)
+            self.assertNotIn("not published", text.casefold())
             for element in elements:
                 self.assertNotIn("href", {local_name(key) for key in element.attrib})
                 for value in element.attrib.values():
@@ -136,9 +133,18 @@ class ProfileAssetTests(unittest.TestCase):
                 )
                 image.seek(image.n_frames // 2)
                 middle_frame = image.convert("RGB")
+                animation_delta = ImageChops.difference(first_frame, middle_frame)
                 self.assertIsNotNone(
-                    ImageChops.difference(first_frame, middle_frame).getbbox(),
+                    animation_delta.getbbox(),
                     "The animated map must contain a real visual change.",
+                )
+                self.assertIsNotNone(
+                    animation_delta.crop((49, 110, 487, 531)).getbbox(),
+                    "VISUAL.MAP must animate independently.",
+                )
+                self.assertIsNotNone(
+                    animation_delta.crop((512, 110, 1133, 531)).getbbox(),
+                    "SYSTEM.INFO must animate independently.",
                 )
 
     def test_readme_prefers_static_assets_when_motion_is_reduced(self) -> None:

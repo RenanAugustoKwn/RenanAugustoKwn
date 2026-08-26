@@ -35,7 +35,7 @@ python tools/generate_profile_assets.py
 python -m unittest discover -s tests -v
 ```
 
-Mantenha campos pessoais sem confirmação como `Not published`; não invente origem, formação, portfólio ou links sociais. As URLs do README carregam uma versão `?v=20260825` para reduzir problemas de cache após o próximo push.
+O banner exibe somente fatos públicos confirmados. Campos sem confirmação — como origem, formação, portfólio ou links sociais — são omitidos em vez de receber texto de preenchimento. As URLs do README carregam uma versão `?v=20260825` para reduzir problemas de cache após o próximo push.
 
 ## Diagnóstico de cache
 
